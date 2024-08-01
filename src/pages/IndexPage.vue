@@ -30,20 +30,28 @@
         lazy-rules
         :rules="[ val => val && val.length > 0 || 'Please type surname']"
       />
+      <q-input
+        filled
+        v-model="language"
+        label="Your language"
+        hint="Your language"
+        lazy-rules
+        :rules="[ val => val && val.length > 0 || 'Please type language']"
+      />
 
       <q-input
         filled
         type="number"
         v-model="age"
-        label="Your age *"
+        label="อายุ *"
         lazy-rules
         :rules="[
-          val => val !== null && val !== '' || 'Please type your age',
-          val => val > 0 && val < 100 || 'Please type a real age'
+          val => val !== null && val !== '' || 'โปรดใส่อายุ',
+          val => val > 0 && val < 100 || 'โปรดใส่อายุ'
         ]"
       />
 
-      <q-toggle v-model="accept" label="I accept the license and terms" />
+      <q-toggle v-model="accept" label="ยอมรับเงื่อนไข" />
 
       <div>
         <q-btn label="Submit" type="submit" color="primary"/>
@@ -62,16 +70,18 @@ export default {
   setup () {
     const $q = useQuasar()
 
-    const id = ref('6604101350')
+    const id = ref("6604101350")
     const name = ref('ปาณัสม์')
     const surname = ref('บุญเลา')
-    const age = ref('20')
+    const language = ref('English')
+    const age = ref(null)
     const accept = ref(false)
 
     return {
       id,
       name,
       surname,
+      language,
       age,
       accept,
 
@@ -98,6 +108,7 @@ export default {
         id.value = null
         name.value = null
         surname.value = null
+        language.value = null
         age.value = null
         accept.value = false
       }
