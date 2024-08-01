@@ -12,7 +12,15 @@
         label="Your name *"
         hint="Name and surname"
         lazy-rules
-        :rules="[ val => val && val.length > 0 || 'Please type something']"
+        :rules="[ val => val && val.length > 0 || 'Please type name']"
+      />
+      <q-input
+        filled
+        v-model="surname"
+        label="Your surname *"
+        hint="surname"
+        lazy-rules
+        :rules="[ val => val && val.length > 0 || 'Please type surname']"
       />
 
       <q-input
@@ -52,6 +60,7 @@ export default {
 
     return {
       name,
+      surname,
       age,
       accept,
 
@@ -76,6 +85,7 @@ export default {
 
       onReset () {
         name.value = null
+        surname.value = null
         age.value = null
         accept.value = false
       }
