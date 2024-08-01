@@ -43,15 +43,15 @@
         filled
         type="number"
         v-model="age"
-        label="อายุ *"
+        label="age *"
         lazy-rules
         :rules="[
-          val => val !== null && val !== '' || 'โปรดใส่อายุ',
-          val => val > 0 && val < 100 || 'โปรดใส่อายุ'
+          val => val !== null && val !== '' || 'Please type age',
+          val => val > 0 && val < 100 || 'Please type real age'
         ]"
       />
 
-      <q-toggle v-model="accept" label="ยอมรับเงื่อนไข" />
+      <q-toggle v-model="accept" label="I accept the license and terms" />
 
       <div>
         <q-btn label="Submit" type="submit" color="primary"/>
